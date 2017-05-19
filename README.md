@@ -12,3 +12,8 @@ Nyaa search plugin for qBittorrent
 - Active Search: `View -> Search Engine`
 - Install Plugin: `'Search' tab -> Search plugins -> Install a new one -> nyaa.py`
 
+### Changelog
+
+- 1.01 Fixed bug that cause cannot load full result
+- 1.02 Added pagination feature
+
