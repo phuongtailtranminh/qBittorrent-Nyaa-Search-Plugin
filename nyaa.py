@@ -1,4 +1,4 @@
-#VERSION: 1.00
+#VERSION: 1.01
 #AUTHORS: Phuong Tran (phuongtm6994@gmail.com)
 # LICENSING INFORMATION
 from novaprinter import prettyPrinter
@@ -32,17 +32,15 @@ class nyaa(object):
       tds = row.find_all('td')
       ref = tds[1].find('a').get('href')
       title = tds[1].find('a').text
-      link = tds[2].find_all('a')[1].get('href')
+      link = tds[2].find_all('a')[-1].get('href')
       _size = tds[3].text
       size = _size[:-3]
       unit = _size[-3:]
       # sizeInBytes = -1
       if unit == "GiB":
         sizeInBytes = float(size) * 1073741824
-        print sizeInBytes
       elif unit == "MiB":
         sizeInBytes = float(size) * 1000000
-      print sizeInBytes
       seeders = tds[5].text
       leechers = tds[6].text
       res = dict(link=link,
@@ -52,5 +50,4 @@ class nyaa(object):
                  leech=leechers,
                  engine_url=self.url,
                  desc_link=self.url + ref)
-      prettyPrinter(res)      
-
+      prettyPrinter(res)
