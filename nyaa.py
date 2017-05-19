@@ -1,4 +1,4 @@
-#VERSION: 1.02
+#VERSION: 1.03
 #AUTHORS: Phuong Tran (phuongtm6994@gmail.com)
 # LICENSING INFORMATION
 from novaprinter import prettyPrinter
@@ -34,9 +34,6 @@ class nyaa(object):
     item_per_pages = parsed_pattern.group(1)
     total_page = parsed_pattern.group(2)
     number_of_page = math.ceil(float(total_page) / float(item_per_pages))
-    print item_per_pages
-    print total_page
-    print number_of_page
     for i in range(0, int(number_of_page)):
       base_url_with_query_and_page = base_url_with_query + '&p=%s' % str(i + 1)
       response = retrieve_url(base_url_with_query_and_page)
@@ -52,6 +49,7 @@ class nyaa(object):
         _size = tds[3].text
         size = _size[:-3]
         unit = _size[-3:]
+        sizeInBytes = 0
         if unit == "GiB":
           sizeInBytes = float(size) * 1073741824
         elif unit == "MiB":
