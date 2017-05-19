@@ -16,4 +16,4 @@ Nyaa search plugin for qBittorrent
 
 - 1.01 Fixed bug that cause cannot load full result
 - 1.02 Added pagination feature
-
+- 1.03 Fixed case 0 bytes torrent, the result cannot be displayed
