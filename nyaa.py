@@ -43,8 +43,9 @@ class nyaa(object):
       rows = table_body.find_all('tr')
       for row in rows:
         tds = row.find_all('td')
-        ref = tds[1].find('a').get('href')
-        title = tds[1].find('a').text
+        _title = tds[1].find_all('a')[-1]
+        ref = _title.get('href')
+        title = _title.text
         link = tds[2].find_all('a')[-1].get('href')
         _size = tds[3].text
         size = _size[:-3]
